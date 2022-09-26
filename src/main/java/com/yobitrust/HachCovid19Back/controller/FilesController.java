@@ -17,12 +17,12 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Controller
-@CrossOrigin("https://localhost:3000")
+@CrossOrigin("https://sars-cov2-tun.web.app/")
 public class FilesController {
 
   @Autowired
   FilesStorageService storageService;
-  @CrossOrigin("https://localhost:3000")
+  @CrossOrigin("https://sars-cov2-tun.web.app/")
   @PostMapping("/upload")
   public ResponseEntity<ResponseMessage> uploadFile(@RequestParam("file") MultipartFile file) {
     String message = "";
@@ -36,7 +36,7 @@ public class FilesController {
       return ResponseEntity.status(HttpStatus.EXPECTATION_FAILED).body(new ResponseMessage(message));
     }
   }
-  @CrossOrigin(origins ="https://localhost:3000" )
+  @CrossOrigin(origins ="https://sars-cov2-tun.web.app/" )
   @GetMapping("/files")
   public ResponseEntity<List<FileInfo>> getListFiles() {
     List<FileInfo> fileInfos = storageService.loadAll().map(path -> {
@@ -49,7 +49,7 @@ public class FilesController {
 
     return ResponseEntity.status(HttpStatus.OK).body(fileInfos);
   }
-  @CrossOrigin(origins ="https://localhost:3000" )
+  @CrossOrigin(origins ="https://sars-cov2-tun.web.app/" )
   @GetMapping("/files/{filename:.+}")
   public ResponseEntity<Resource> getFile(@PathVariable String filename) {
     Resource file = storageService.load(filename);
