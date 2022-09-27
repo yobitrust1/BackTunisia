@@ -15,7 +15,10 @@ public class ConfDiag {
     List<RapideAg>  rapideAgs;
     List<Serologie> serologies;
     public ConfDiag(){
-
+        this.pcrs=new ArrayList<>();
+        this.rapideAcs=new ArrayList<>();
+        this.rapideAgs=new ArrayList<>();
+        this.serologies=new ArrayList<>();
     }
 
     public ConfDiag(List<Pcr> pcrs, List<RapideAc> rapideAcs, List<RapideAg> rapideAgs, List<Serologie> serologies) {
